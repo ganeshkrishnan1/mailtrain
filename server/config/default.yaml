@@ -19,13 +19,13 @@ gdpr:
   # If enabled, after a user unsubscribes or complains, his/her data are removed from the subscription.
   # Only hashed email remains to prevent resubscription via import
   deleteDataAfterUnsubscribe:
-    enabled: true
+    enabled: false
     secondsAfterUnsubscribe: 86400 # 1 day
 
   # If enabled, after the time below, an entry of a subscriber that unsubscribed or complained
   # is completely removed from the subscribers list (including the hashed email)
   deleteSubscriptionAfterUnsubscribe:
-    enabled: true
+    enabled: false
     secondsAfterUnsubscribe: 2592000 # 30 days
 
 # Enabled HTML editors
@@ -63,8 +63,8 @@ cid:
 
 # Enable to use Redis session cache or disable if Redis is not installed
 redis:
-  enabled: false
-  host: localhost
+  enabled: true
+  host: redisHost
   port: 6379
   db: 5
   # Uncomment if your Redis installation requires a password
@@ -84,7 +84,7 @@ redis:
 
 log:
   # silly|verbose|info|http|warn|error|silent
-  level: info
+  level: verbose
   sendStacktracesToClient: false
 
 www:
@@ -106,14 +106,14 @@ www:
 
 
   # Secret for signing the session ID cookie
-  secret: a cat
+  secret: fideonlinearena
   # Session length in seconds when remember me is checked
   remember: 2592000 # 30 days
   # logger interface for expressjs morgan
   log: dev
   # Is the server behind a proxy? true/false
   # Set this to true if you are serving Mailtrain as a virtual domain through Nginx or Apache
-  proxy: false
+  proxy: true
   # maximum POST body size
   postSize: 2MB
 
