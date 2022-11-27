@@ -613,7 +613,7 @@ async function sendQueuedMessage(queuedMessage) {
             type: queuedMessage.type,
             data: JSON.stringify(queuedMessage.data)
         });
-
+        console.log(err);
         throw err;
     }
 

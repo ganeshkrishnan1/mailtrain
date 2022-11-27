@@ -170,11 +170,20 @@ function _formatTemplateSimple(source, mergeTags, isHTML) {
             return '';
         }
 
+        try{
         const containsHTML = /<[a-z][\s\S]*>/.test(value);
         return isHTML ? he.encode((containsHTML ? value : value.replace(/(?:\r\n|\r|\n)/g, '<br/>')), {
             useNamedReferences: true,
             allowUnsafeSymbols: true
         }) : (containsHTML ? htmlToText.fromString(value) : value);
+    }
+    catch(err)
+    {
+        console.log(err);
+        log.error('MessageSender', "Error replacing value. not sure if html " + value);
+        return value;
+    }
+
     };
 
     return source.replace(/\[([a-z0-9_.]+)(?:\/([^\]]+))?\]/ig, (match, identifier, fallback) => {
