@@ -47,11 +47,6 @@ defaultLanguage: en-US
 # Enabled languages
 enabledLanguages:
 - en-US
-- es-ES
-- pt-BR
-- de-DE
-- fr-FR
-- fk-FK
 
 # Inject custom scripts in subscription/layout.mjml.hbs
 # customSubscriptionScripts: [/custom/hello-world.js]
